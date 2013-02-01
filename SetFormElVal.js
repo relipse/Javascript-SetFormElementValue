@@ -1,4 +1,18 @@
 /**
+ * SetFormElementValue
+ * 
+ * Date: Feb 1, 2013
+ * Author: Jim Kinsman (relipse@gmail.com)
+ * 
+ * Copyright (c) 2013 Jim Kinsman
+ * I hearby reliquish my right to this code to the public domain. Have fun
+ * You can use this code for whatever you want and you 
+ * don't have to include any license comments, it is only a snippet.
+ */
+
+
+
+/**
  * Set a form element's value|checked
  * @param element elm the form element to set
  * @param mixed value the value to set, true/false for checkboxes and radio boxes string for everything else
