@@ -8,7 +8,6 @@
  */
 
 
-
 /**
  * Set a form element's value|checked
  * @param element elm the form element to set
@@ -16,6 +15,8 @@
  * @return boolean true on success
  */
 function SetFormElementValue(elm, value){ 
+    if (!elm) return false;
+    
     if (typeof(elm.tagName) == 'undefined' && elm.length > 0 && elm[0].type == 'radio'){
         //radio boxes
         for (var i = 0; i < elm.length; ++i){
@@ -27,19 +28,14 @@ function SetFormElementValue(elm, value){
         }
         return true;
     }else if (elm.type == 'checkbox' || elm.type == 'radio'){
-        if (value === false || value === ''){
-          elm.checked = false;   
-        }else{
-          elm.checked = true;
-          //if the user passes in true, just check the box
-          if (value !== true){
-             //actually change the post value!
-             elm.value = value;            
-          }
-        }
+        elm.checked = !!value;
         return true;
     }else{
       //not a radio box or a checkbox, just change the value
+      //do not allow "null" to be put into input boxes (ie problem)
+      if (value === null || value === false){ 
+         value = ''; 
+      }
       elm.value = value;
       return true;
     }
